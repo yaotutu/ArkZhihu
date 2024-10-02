@@ -1,5 +1,10 @@
+import { CommentItemInterface } from '../Models/CommentItem'
+
 @Component
 export default struct ContentComponent {
+  item?: CommentItemInterface
+  checkFav?: () => void
+
   build() {
     Row() {
       Image($r("app.media.touxiang"))
@@ -7,7 +12,7 @@ export default struct ContentComponent {
         .aspectRatio(1)
         .borderRadius(16)
       Column() {
-        Text("Ken")
+        Text(this.item?.author)
           .fontWeight(600)
           .width("100%")
         Text("测试文本测试文本测试文本测试文本测试文本测试文本测试文本")
@@ -21,7 +26,12 @@ export default struct ContentComponent {
             Image($r("app.media.ic_public_favor"))
               .width(14)
               .aspectRatio(1)
-            Text("1000")
+              .onClick(()=>{
+                if(this.checkFav){
+                  this.checkFav()
+                }
+              })
+            Text(this.item?.facNum.toString())
           }
         }
         .justifyContent(FlexAlign.SpaceBetween)
@@ -29,7 +39,7 @@ export default struct ContentComponent {
       }
       .layoutWeight(1)
       .padding({
-        left:10
+        left: 10
       })
     }
     .justifyContent(FlexAlign.Start)
