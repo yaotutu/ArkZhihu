@@ -1,6 +1,6 @@
 import TitleComponent from "./component/TitleComponent"
 import ContentComponent from "./component/ContentComponent"
-
+import CommentComponent from  "./component/CommentComponent"
 @Entry
 @Component
 struct Index {
@@ -23,12 +23,14 @@ struct Index {
           // ContentComponent()
           // ContentComponent()
           // ContentComponent()
+          // ContentComponent()
+          // ContentComponent()
         }
         .justifyContent(FlexAlign.Start)
-        .height("100%")
+        // .height("100%")
       }
       .layoutWeight(1)
-      // .height(300 )
+      CommentComponent()
     }
 
   }
